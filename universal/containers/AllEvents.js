@@ -25,7 +25,7 @@ class AllEvents extends Component {
 export default connect(
   state => ({
     events: state.pulseApp.events,
-    userId: state.pulseApp.userId
+    userId: state.user.name
   }), 
   dispatch => bindActionCreators(PulseActions, dispatch)
 )(AllEvents);

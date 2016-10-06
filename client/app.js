@@ -3,7 +3,6 @@ import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
-import { getOrSetUserId } from './UserId';
 import { setupRealtime } from './Realtime';
 
 import routes from '../universal/routes';
@@ -25,6 +24,3 @@ ReactDOM.render(
 
 // Now that we have rendered...
 setupRealtime(store, actions);
-
-// lets mutate state and set UserID as key from local storage
-store.dispatch(actions.setUserId(getOrSetUserId()));

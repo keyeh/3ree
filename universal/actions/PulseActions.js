@@ -4,13 +4,6 @@ import request from 'superagent';
 const serverUrl = '';
 const eventsUrl = `${serverUrl}/api/0/events`;
 
-export function setUserId(userId) {
-  return {
-    type: types.SET_USER_ID,
-    userId
-  };
-}
-
 export function loadEvents() {
   return dispatch => {
     dispatch(loadEventsRequest());

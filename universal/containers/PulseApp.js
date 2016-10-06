@@ -34,7 +34,7 @@ class PulseApp extends Component {
  */
 export default connect(
   state => ({
-    userId: state.pulseApp.userId,
+    userId: state.user.name,
     isWorking: state.pulseApp.isWorking,
     error: state.pulseApp.error
   })

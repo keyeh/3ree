@@ -8,7 +8,6 @@ import {
 
 const initialState = {
   isWorking: false,
-  userId: null,
   error: null,
   events: []
 };
