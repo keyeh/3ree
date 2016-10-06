@@ -36,6 +36,7 @@ class PulseApp extends Component {
         <AsyncBar isWorking={this.props.isWorking} error={this.props.error} />
         {this.props.myEvents}
         {this.props.otherEvents}
+        {this.props.children}
       </div>
     );
   }

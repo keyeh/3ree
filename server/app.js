@@ -8,13 +8,15 @@ import configureStore from '../universal/store';
 import routes from '../universal/routes';
 import DevTools from '../universal/containers/devTools';
 
+import userReducer from '../universal/reducers/userReducer';
+
 const isDev = (process.env.NODE_ENV !== 'production');
 
 export function handleRender(req, res) {
   console.log(' [x] Request for', req.url);
   eventService.getEvents()
   .then(initialEvents => {
-    let initialState = {pulseApp: { events: initialEvents, userId: 'baseUser'} };
+    let initialState = {pulseApp: { events: initialEvents, user: {}, userId: 'baseUser'} };
 
     const store = configureStore(req, initialState);
 

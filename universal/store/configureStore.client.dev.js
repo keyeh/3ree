@@ -1,7 +1,8 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
-import { routerReducer } from 'react-router-redux';
+import { routerReducer, routerMiddleware, push } from 'react-router-redux';
+import { browserHistory } from 'react-router';
 import DevTools from '../containers/devTools';
 
 import pulseApp from '../reducers';
@@ -21,7 +22,7 @@ const loggerMiddleware = createLogger({
 });
 
 const enhancer = compose(
-  applyMiddleware(thunkMiddleware, loggerMiddleware),
+  applyMiddleware(thunkMiddleware, loggerMiddleware, routerMiddleware(browserHistory)),
   DevTools.instrument()
 );
 

@@ -42,6 +42,7 @@
     "react-router": "2.4.x",
     "react-router-redux": "4.0.x",
     "redux": "3.5.x",
+    "redux-auth-wrapper": "^0.8.0",
     "redux-logger": "2.6.x",
     "redux-thunk": "2.1.x",
     "rethinkdb": "2.3.x",

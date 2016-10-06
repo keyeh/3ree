@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import { routerReducer } from 'react-router-redux';
+import { routerReducer, routerMiddleware, push } from 'react-router-redux';
+import { browserHistory } from 'react-router';
 
 import pulseApp from '../reducers';
 
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
 });
 
 const enhancer = compose(
-  applyMiddleware(thunkMiddleware)
+  applyMiddleware(thunkMiddleware),
+  routerMiddleware(browserHistory)
 );
 
 const store = createStore(rootReducer, initialState, enhancer);
