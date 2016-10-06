@@ -23,7 +23,7 @@ const enhancer = compose(
 const store = createStore(rootReducer, initialState, enhancer);
 
 if (module.hot) {
-  module.hot.accept('../reducers', () =>
+  module.hot.accept('./rootReducer', () =>
     store.replaceReducer(rootReducer)
   );
 };

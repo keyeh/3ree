@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { login } from '../actions/User'
 
 function select(state, ownProps) {
-  const isAuthenticated = state.pulseApp.user.name || false
+  const isAuthenticated = state.user.name || false
   const redirect = ownProps.location.query.redirect || '/'
   return {
     isAuthenticated,

@@ -9,7 +9,7 @@ import { routerActions } from 'react-router-redux'
 import { UserAuthWrapper } from 'redux-auth-wrapper';
 
 const UserIsAuthenticated = UserAuthWrapper({
-  authSelector: state => state.pulseApp.user, // how to get the user state
+  authSelector: state => state.user, // how to get the user state
   redirectAction: routerActions.replace, // the redux action to dispatch for redirect
   wrapperDisplayName: 'UserIsAuthenticated' // a nice name for this auth check
 })
