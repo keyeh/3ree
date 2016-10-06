@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import EventList from '../components/EventList';
+import EventInput from '../components/EventInput';
 
 import * as PulseActions from '../actions/PulseActions';
 
@@ -21,7 +22,13 @@ class MyEvents extends Component {
     };
 
     return (
-      <EventList events={this.props.events} userId={this.props.userId} actions={actions} />
+      <div>
+        <section className='Pulse-addEventForm'>
+          <EventInput onSubmit={this.props.addEvent} userId={this.props.userId} textLabel='What happened?' valueLabel='Rating' />
+        </section>
+        
+        <EventList events={this.props.events} userId={this.props.userId} actions={actions} />
+      </div>
     );
   }
 }

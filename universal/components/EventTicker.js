@@ -10,17 +10,14 @@ export default class EventTicker extends Component {
   render() {
     const { events, userId, actions } = this.props;
 
-    const otherEvents = events.filter(row => row.userId !== userId );
-
-    let cumulative = otherEvents.reduce((x, event) =>  event.value + x, 0);
-    let average = (otherEvents.length > 0) ? Math.round(cumulative/otherEvents.length) : 0;
-    let editable = false;
+    let cumulative = events.reduce((x, event) =>  event.value + x, 0);
+    let average = (events.length > 0) ? Math.round(cumulative/events.length) : 0;
 
     return (
       <section className='Pulse-eventList'>
         <div className='Pulse-eventList-summary'>
           <span>Other Events</span>
-          <span className='val'>{otherEvents.length}</span>
+          <span className='val'>{events.length}</span>
           <span>Avg.</span>
           <span className='val'>{average}</span>
           <span>Cum.</span>
@@ -28,8 +25,8 @@ export default class EventTicker extends Component {
         </div>
         <div className='Pulse-eventList-list'>
           <ul>
-            {otherEvents.slice(0,this.props.length).map((event, key) =>
-              <EventItem key={key} row={key} id={event.id} event={event} editable={editable} />
+            {events.slice(0,this.props.length).map((event, key) =>
+              <EventItem key={key} row={key} id={event.id} event={event} editable={this.props.userId == event.userId} />
             )}
           </ul>
         </div>

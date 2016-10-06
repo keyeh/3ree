@@ -6,7 +6,7 @@ import EventTicker from '../components/EventTicker';
 
 import * as PulseActions from '../actions/PulseActions';
 
-class OtherEvents extends Component {
+class AllEvents extends Component {
   static propTypes = {
     userId: React.PropTypes.string,
     events: React.PropTypes.array
@@ -28,4 +28,4 @@ export default connect(
     userId: state.pulseApp.userId
   }), 
   dispatch => bindActionCreators(PulseActions, dispatch)
-)(OtherEvents);
+)(AllEvents);

@@ -4,7 +4,8 @@ import { Route, IndexRoute } from 'react-router';
 import PulseApp from './containers/PulseApp';
 import MyEvents from './containers/MyEvents';
 import Login from './containers/Login';
-import OtherEvents from './containers/OtherEvents';
+import Welcome from './components/Welcome';
+import AllEvents from './containers/AllEvents';
 import { routerActions } from 'react-router-redux'
 import { UserAuthWrapper } from 'redux-auth-wrapper';
 
@@ -18,9 +19,9 @@ const UserIsAuthenticated = UserAuthWrapper({
 
 export default (
   <Route path='/' component={PulseApp}>
-    <IndexRoute components={{myEvents: MyEvents, otherEvents: OtherEvents}} />
+    <IndexRoute component={Welcome} />
     <Route path='my-events' component={UserIsAuthenticated(MyEvents)} />
     <Route path='login' component={Login} />
-    <Route path='other-events' components={{otherEvents: OtherEvents}} />
+    <Route path='all-events' component={AllEvents} />
   </Route>
 );
